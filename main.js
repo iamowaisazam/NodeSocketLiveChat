@@ -21,7 +21,7 @@ io.on('connection',(socket) => {
     console.log('Connected..');
 
     socket.on('message',(msg) => {
-    //  console.log(msg);
+     console.log(msg);
     // socket.broadcast.emit('message',msg);
      io.emit('message', msg);
     });
