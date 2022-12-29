@@ -21,4 +21,6 @@ app.get('/api/item/:slug', (req, res) => {
   res.end(`Item: ${slug}`);
 });
 
+console.log('App is running');
+
 module.exports = app;
