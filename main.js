@@ -9,7 +9,7 @@ http.listen(PORT,() => {
 
 });
 
-app.use(express.static(__dirname))
+app.use(express.static(__dirname + '/public'))
 
 app.get('/',(req,res) => {
   res.sendFile(__dirname + '/index.html');
@@ -18,18 +18,12 @@ app.get('/',(req,res) => {
 const io = require('socket.io')(http)
 
 io.on('connection',(socket) => {
-
-
     console.log('Connected..');
 
-
-
-
     socket.on('message',(msg) => {
-
-        console.log(msg);
-        socket.broadcast.emit('message',msg);
-      //  io.emit('message', msg);
+    //  console.log(msg);
+    // socket.broadcast.emit('message',msg);
+     io.emit('message', msg);
     });
 
   
